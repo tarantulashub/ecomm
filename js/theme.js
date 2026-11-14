@@ -29,7 +29,15 @@ export function iniciarTema(boton, alCambiar) {
 
   boton.addEventListener("click", () => {
     const nuevo = raiz.dataset.theme === "dark" ? "light" : "dark";
-    aplicar(nuevo);
+    const cambiar = () => { raiz.classList.add("cambiando"); aplicar(nuevo); };
+
+    if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const t = document.startViewTransition(cambiar);
+      t.finished.finally(() => raiz.classList.remove("cambiando"));
+    } else {
+      cambiar();
+      raiz.classList.remove("cambiando");
+    }
     alCambiar?.(nuevo);
   });
 }
