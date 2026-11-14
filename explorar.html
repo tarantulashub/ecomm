@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Productos y servicios · ecomm</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="explorar.css" />
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- CABECERA (sin logo; con botón de tema) -->
+  <header class="header header--explorar glass">
+    <span></span>
+    <h1 class="header__title">Productos y servicios</h1>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema">
+      <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M5.2 18.8l1.7-1.7M17.1 6.9l1.7-1.7" />
+      </svg>
+      <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" />
+      </svg>
+    </button>
+  </header>
+
+  <main class="main main--explorar">
+
+    <!-- Botón volver (solo se ve en navegador/computadora) -->
+    <div class="barra-volver" id="barra-volver">
+      <button class="volver glass" id="btn-volver" type="button">← Volver</button>
+    </div>
+
+    <!-- VISTA 1: introducción + carruseles -->
+    <section id="vista-inicio" class="vista">
+      <p class="intro">Aquí presentamos nuestra sección de productos y servicios organizados por categoría.</p>
+
+      <h2 class="seccion">Productos</h2>
+      <div class="carrusel">
+        <button class="flecha flecha--izq" type="button" aria-label="Anterior" hidden>‹</button>
+        <div class="pista" id="pista-productos"></div>
+        <button class="flecha flecha--der" type="button" aria-label="Siguiente" hidden>›</button>
+      </div>
+
+      <h2 class="seccion">Servicios</h2>
+      <div class="carrusel">
+        <button class="flecha flecha--izq" type="button" aria-label="Anterior" hidden>‹</button>
+        <div class="pista" id="pista-servicios"></div>
+        <button class="flecha flecha--der" type="button" aria-label="Siguiente" hidden>›</button>
+      </div>
+    </section>
+
+    <!-- VISTA 2: artículos de la categoría elegida -->
+    <section id="vista-categoria" class="vista" hidden>
+      <h2 class="seccion seccion--grande" id="cat-titulo"></h2>
+      <p class="intro">Toca un artículo para ver más información.</p>
+      <div class="lista" id="lista"></div>
+    </section>
+  </main>
+
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script type="module" src="js/explorar.js"></script>
+</body>
+</html>
