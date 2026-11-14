@@ -4,8 +4,8 @@
 
 // 1) Supabase: lo encuentras en Project Settings → API
 //    Usa la clave "anon public" (NUNCA la "service_role")
-export const SUPABASE_URL = "PEGA_AQUI_TU_PROJECT_URL";
-export const SUPABASE_ANON_KEY = "PEGA_AQUI_TU_ANON_KEY";
+export const SUPABASE_URL = "https://fpmqbekzscezfzdsmczs.supabase.co/rest/v1/";
+export const SUPABASE_ANON_KEY = "sb_publishable_-qjuPh2SvI4FU2onciYFuQ_TS48QYWn";
 
 // 2) Enlaces de los botones (déjalos vacíos "" si aún no los tienes)
 export const LINKS = {
