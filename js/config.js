@@ -11,7 +11,7 @@ export const SUPABASE_ANON_KEY = "sb_publishable_-qjuPh2SvI4FU2onciYFuQ_TS48QYWn
 export const LINKS = {
   explorar: "",   // ej: "https://telegra.ph/tu-catalogo"
   soporte: "",    // ej: "https://t.me/tu_usuario_de_soporte"
-  faq: "",        // ej: "https://telegra.ph/preguntas-frecuentes"
+  faq: "https://telegra.ph/preguntas-y-respuestas-08-20",        // ej: "https://telegra.ph/preguntas-frecuentes"
 };
 
 // 3) Texto que se usa cuando el usuario no tiene nombre en Telegram
