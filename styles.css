@@ -281,3 +281,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: 0.01s !important; }
 }
+
+html.cambiando *, html.cambiando *::before, html.cambiando *::after {
+  transition: none !important;
+}
+::view-transition-old(root), ::view-transition-new(root) {
+  animation-duration: 0.35s;
+}
