@@ -4,7 +4,7 @@
 import { LINKS } from "./config.js";
 import { iniciarTelegram, obtenerUsuario, abrirEnlace } from "./telegram.js";
 import { registrarVisita, registrarEvento } from "./supabase.js";
-import { fraseSegunHora, PREGUNTA_PRIMERA_VEZ } from "./greetings.js";
+import { fraseSegunHora, SALUDO_PRIMERA_VEZ, PREGUNTA_PRIMERA_VEZ } from "./greetings.js";
 import { iniciarTema } from "./theme.js";
 import { iniciarVidrio } from "./glass.js";
 
@@ -18,33 +18,26 @@ function iniciarLogo() {
   img.addEventListener("error", () => img.remove());
 }
 
-// ---------- Texto con el nombre en negrita (sin usar innerHTML = seguro) ----------
-function escribirFrase(elemento, plantilla, nombre) {
-  elemento.textContent = "";
-  plantilla.split("{n}").forEach((trozo, i, partes) => {
-    elemento.append(trozo);
-    if (i < partes.length - 1) {
-      const negrita = document.createElement("strong");
-      negrita.textContent = nombre;
-      elemento.append(negrita);
-    }
-  });
-}
-
-// ---------- Saludo ----------
+// ---------- Saludo (arriba, izquierda) + pregunta (centro) ----------
 function mostrarSaludo(usuario, visita) {
   const hola = $("hello");
   const pregunta = $("question");
 
-  // Primera vez (según Supabase). Si Supabase falla, usamos el saludo normal.
+  let saludo, texto;
   if (visita?.esNueva) {
-    hola.hidden = false;
-    hola.textContent = `Hola, ${usuario.nombreMostrar} 👋`;
-    pregunta.textContent = PREGUNTA_PRIMERA_VEZ;
+    // Primera vez (según Supabase)
+    saludo = SALUDO_PRIMERA_VEZ;
+    texto = PREGUNTA_PRIMERA_VEZ;
   } else {
-    hola.hidden = true;
-    escribirFrase(pregunta, fraseSegunHora(), usuario.nombreMostrar);
+    const f = fraseSegunHora();
+    saludo = f.saludo;
+    texto = f.pregunta;
   }
+
+  // textContent = seguro (el nombre nunca se interpreta como código)
+  hola.hidden = false;
+  hola.textContent = saludo.replace("{n}", usuario.nombreMostrar);
+  pregunta.textContent = texto;
 }
 
 // ---------- Aviso flotante ----------
@@ -70,12 +63,12 @@ function iniciarBotones(usuario) {
 
 // ---------- Arranque ----------
 async function arrancar() {
+  const usuario = obtenerUsuario();
+
   iniciarTelegram();
   iniciarLogo();
   iniciarVidrio();
   iniciarTema($("theme-toggle"), (tema) => registrarEvento(usuario.id, `tema_${tema}`));
-
-  const usuario = obtenerUsuario();
   iniciarBotones(usuario);
 
   // Mientras Supabase responde, mostramos el saludo normal (no se ve vacío)
