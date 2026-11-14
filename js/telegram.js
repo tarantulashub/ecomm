@@ -32,10 +32,21 @@ export function obtenerUsuario() {
   };
 }
 
+// Abre un enlace según su tipo:
+//  - "explorar.html" (sin https)  → página interna de esta misma app
+//  - https://t.me/...             → dentro de Telegram
+//  - https://telegra.ph/...       → vista rápida dentro de Telegram
+//  - cualquier otro https://...   → navegador
 export function abrirEnlace(url) {
   if (!url) return false;
-  if (tg && /^https:\/\/t\.me\//.test(url)) tg.openTelegramLink(url);
-  else if (tg) tg.openLink(url);
+
+  if (!/^https?:\/\//i.test(url)) {
+    window.location.href = url;
+    return true;
+  }
+
+  if (tg && /^https:\/\/t\.me\//i.test(url)) tg.openTelegramLink(url);
+  else if (tg) tg.openLink(url, { try_instant_view: /^https:\/\/telegra\.ph\//i.test(url) });
   else window.open(url, "_blank");
   return true;
 }
