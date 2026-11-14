@@ -10,6 +10,7 @@ export const SUPABASE_ANON_KEY = "sb_publishable_-qjuPh2SvI4FU2onciYFuQ_TS48QYWn
 // 2) Enlaces de los botones (déjalos vacíos "" si aún no los tienes)
 export const LINKS = {
   explorar: "",   // ej: "https://telegra.ph/tu-catalogo"
+  explorar: "explorar.html",
   soporte: "",    // ej: "https://t.me/tu_usuario_de_soporte"
   faq: "https://telegra.ph/preguntas-y-respuestas-08-20",        // ej: "https://telegra.ph/preguntas-frecuentes"
 };
