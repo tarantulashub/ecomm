@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ecomm</title>
+
+  <!-- Fuente: Source Sans 3 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Fondo vivo: luces suaves que el vidrio refracta -->
+  <div class="bg" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- CABECERA -->
+  <header class="header glass">
+    <div class="header__logo" id="logo-box">
+      <!-- Sube tu imagen a la carpeta img/ con el nombre logo.png -->
+      <img src="img/logo.png" alt="Logo ecomm" id="logo-img" />
+    </div>
+
+    <h1 class="header__title">ecomm</h1>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema">
+      <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M5.2 18.8l1.7-1.7M17.1 6.9l1.7-1.7" />
+      </svg>
+      <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+
+    <!-- Saludo superior (solo primera vez) -->
+    <p class="hello" id="hello" hidden></p>
+
+    <!-- Pregunta central -->
+    <section class="center">
+      <p class="question" id="question">&nbsp;</p>
+
+      <nav class="actions" aria-label="Acciones principales">
+        <button class="btn btn--sky" data-action="explorar" type="button">Explorar 🔍</button>
+        <button class="btn btn--green" data-action="soporte" type="button">Hablar con soporte 👩‍💻</button>
+        <button class="btn btn--sky" data-action="faq" type="button">Preguntas frecuentes ❓</button>
+      </nav>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>© 2026 ecomm. Todos los derechos reservados.</p>
+    <p>Design by TechnologieLabs</p>
+  </footer>
+
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Librerías externas -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+
+  <!-- Nuestros módulos (el orden no importa, main.js los une) -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
