@@ -195,20 +195,20 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 16px;
   text-align: center;
-  margin-top: -20px;
+  margin-top: -30px;
 }
 
 .question {
   font-size: 1.45rem;
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
   line-height: 1.35;
   max-width: 22em;
   color: var(--text);
 }
-.question strong { font-weight: 700; font-style: italic; }
+.question strong { font-weight: 700; font-style: normal; }
 
 /* ---------- 7. Botones ---------- */
 .actions {
