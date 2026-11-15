@@ -12,6 +12,9 @@ export function iniciarTelegram() {
   if (!tg) return;
   tg.ready();    // avisa a Telegram que la app cargó
   tg.expand();   // abre a pantalla completa
+  if (tg.BackButton) {
+    tg.BackButton.hide(); // Oculta el botón de atrás por defecto en el inicio
+  }
 }
 
 // Devuelve SIEMPRE un objeto seguro, nunca "undefined"
