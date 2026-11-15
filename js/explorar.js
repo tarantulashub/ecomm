@@ -122,6 +122,9 @@ function cerrarCategoria() {
 // ---------- Volver ----------
 function volver() {
   if (categoriaAbierta) { cerrarCategoria(); return; }
+  if (tg && tg.BackButton) {
+    tg.BackButton.hide();
+  }
   if (history.length > 1) history.back();
   else window.location.href = "index.html";
 }
