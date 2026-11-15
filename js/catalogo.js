@@ -15,9 +15,9 @@ export const PRODUCTOS = [
     emoji: "👕",
     nombre: "Ropa",
     articulos: [
-      { nombre: "Pantalones caballero – Lee",      enlace: "" },  // pega aquí el enlace de telegra.ph
-      { nombre: "Pantalones caballero – Wrangler", enlace: "" },
-      { nombre: "Pantalones caballero – Levi's",   enlace: "" },
+      { nombre: "Pantalones para caballeros – Lee",   enlace: "https://telegra.ph/catalogo-de-pantalones-lee-11-10" },  // pega aquí el enlace de telegra.ph
+      { nombre: "Pantalones para caballeros – Levi's", enlace: "https://telegra.ph/catalogo-de-pantalones-levis-11-10" },
+      { nombre: "Pantalones para caballeros – Wranglers",   enlace: "https://telegra.ph/catalogo-de-pantalones-wrangler-11-10" },
     ],
   },
 
